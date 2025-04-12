@@ -21,7 +21,7 @@ def configurar_pagina():
     st.set_page_config(page_title="Clasificador de Texto", layout="wide")
     st.markdown("""
         <style>
-            .main .block-container { max-width: 95%; padding-left: 3rem; padding-right: 3rem; }
+            .main .block-container { max-width: 60%; padding-left: 3rem; padding-right: 3rem; }
             pre { white-space: pre-wrap !important; word-break: break-word !important; }
         </style>
     """, unsafe_allow_html=True)
