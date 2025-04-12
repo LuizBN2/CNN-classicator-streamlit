@@ -40,7 +40,7 @@ def cargar_datos_tokenizer():
         df_new['target'] = df_new['Type'].map(label2idx)
         df = pd.concat([df, df_new], ignore_index=True)
 
-    with open('tokenizer.pkl', 'rb') as f:
+    with open('tokenizer_21.pkl', 'rb') as f:
         tokenizer = pickle.load(f)
 
     return df, tokenizer, idx2label, label2idx
@@ -77,7 +77,7 @@ def reentrenar_modelo(df, data, T, label2idx, tokenizer):
     history = modelo.fit(X_train, y_train, epochs=10, validation_data=(X_test, y_test))
 
     modelo.save('modelo21.keras')
-    with open('historial_entrenamiento.pkl', 'wb') as f:
+    with open('historial_entrenamiento_21.pkl', 'wb') as f:
         pickle.dump(history.history, f)
 
     if os.path.exists('data/new_examples.csv'):
@@ -116,7 +116,7 @@ def mostrar_probabilidades(probs, idx2label):
 # === Visualización de Entrenamiento ===
 def mostrar_historial_entrenamiento():
     try:
-        with open('historial_entrenamiento.pkl', 'rb') as f:
+        with open('historial_entrenamiento_21.pkl', 'rb') as f:
             history = pickle.load(f)
 
         fig1, ax1 = plt.subplots()
@@ -131,7 +131,7 @@ def mostrar_historial_entrenamiento():
             ax2.legend(); ax2.grid(); ax2.set_title("Precisión"); st.pyplot(fig2)
 
     except FileNotFoundError:
-        st.info("ℹ️ No se encontró el archivo `historial_entrenamiento.pkl`.")
+        st.info("ℹ️ No se encontró el archivo `historial_entrenamiento_21.pkl`.")
 
 
 # === Matriz de Confusión ===
