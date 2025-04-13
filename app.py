@@ -50,7 +50,7 @@ def cargar_datos_tokenizer():
 def preprocesar_texto(df, tokenizer):
     sequences = tokenizer.texts_to_sequences(df['news'])
     data = pad_sequences(sequences)
-    T = data.shape[1]
+    T = 3015
     return data, T
 
 
