@@ -217,7 +217,7 @@ def main():
     configurar_pagina()
 
     with st.sidebar:
-        st.header("⚛️ Redes Neuronales")
+        st.header("⚛️ Redes Neuronales Convolucionales")
         st.page_link("pages/visualizar_modelo.py", label="🧩 Estructura CNN")
 
         st.header("⚙️ Opciones Avanzadas")
